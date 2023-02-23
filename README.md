@@ -3,7 +3,7 @@
 Terraform module which creates Karpenter provisioner and karpenter AwsNodeTemplate resources. 
 
 ### External Documentation
-- [Karpemter Provisioner](https://karpenter.sh/v0.24.0/concepts/provisioners/)
+- [Karpenter Provisioner](https://karpenter.sh/v0.24.0/concepts/provisioners/)
 - [Karpenter Node Templates](https://karpenter.sh/v0.24.0/concepts/node-templates/)
 
 
