@@ -306,7 +306,7 @@ provisioners = {
   }
   ```
 - [consolidation_enabled](https://karpenter.sh/v0.24.0/concepts/deprovisioning/#consolidation)
-  - You can configure Karpenter to deprovision instances through your Provisioner in multiple ways. You can use ttl_secondes_after_empty, spec.ttl_seconds_untill_expierd or consolidation_enabled.
+  - You can configure Karpenter to deprovision instances through your Provisioner in multiple ways. You can use ttl_secondes_after_empty, spec.ttl_seconds_untill_expired or consolidation_enabled.
   ```hcl 
   consolidation_enabled = true
   ```
@@ -315,10 +315,10 @@ provisioners = {
   ```hcl 
   ttl_secondes_after_empty = 30
   ```
-- [ttl_seconds_untill_expierd](https://karpenter.sh/v0.24.0/concepts/deprovisioning/#methods:~:text=used%20for%20workloads.-,Expiration,-%3A%20Karpenter%20requests%20to)
+- [ttl_seconds_untill_expired](https://karpenter.sh/v0.24.0/concepts/deprovisioning/#methods:~:text=used%20for%20workloads.-,Expiration,-%3A%20Karpenter%20requests%20to)
   - If omitted, the feature is disabled and nodes will never expire. If set to less time than it requires for a node to become ready, the node may expire before any pods successfully start.
   ```hcl 
-  ttl_seconds_untill_expierd = 2592000 # 30 Days = 60 * 60 * 24 * 30 Seconds;
+  ttl_seconds_untill_expired = 2592000 # 30 Days = 60 * 60 * 24 * 30 Seconds;
   ```
 - [weight](https://karpenter.sh/v0.24.0/concepts/scheduling/#weighting-provisioners)
   - Priority given to the provisioner when the scheduler considers which provisioner to select. Higher weights indicate higher priority when comparing provisioners.Specifying no weight is equivalent to specifying a weight of 0.
