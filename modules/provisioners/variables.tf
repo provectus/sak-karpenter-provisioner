@@ -1,6 +1,6 @@
 variable "application_name" {
   type        = string
-  description = "A name of the Argocd application recource"
+  description = "A name of the ArgoCD application recource"
 }
 variable "argocd_enabled" {
   type        = bool
@@ -14,7 +14,7 @@ variable "apps_dir" {
 }
 variable "name" {
   type        = string
-  description = " A name of the Karpenter provisioner and AWSNodeTemplae"
+  description = "A name of the Karpenter provisioner and AWSNodeTemplate"
 }
 variable "requirements" {
   type = list(object({
@@ -67,7 +67,7 @@ variable "annotations" {
 }
 variable "container_runtime" {
   type        = string
-  description = "You can specify the container runtime to be either dockerd or containerd.containerd is the only valid container runtime when using the Bottlerocket AMI Family or when using the AL2 AMI Family and K8s version 1.24+"
+  description = "You can specify the container runtime to be either dockerd or containerd. containerd is the only valid container runtime when using the Bottlerocket AMI Family or when using the AL2 AMI Family and K8s version 1.24+"
   validation {
     condition     = contains(["containerd", "dockerd"], var.container_runtime)
     error_message = "Valid value is one of the following: containerd , dockerd."
@@ -106,7 +106,7 @@ variable "kubelet_eviction_soft_grace_period" {
 }
 variable "kubelet_eviction_max_pod_grace_period" {
   type        = string
-  description = "the administrator-specified maximum pod termination grace period to use during soft eviction."
+  description = "The administrator-specified maximum pod termination grace period to use during soft eviction."
   default     = null
 }
 variable "kubelet_pods_per_core" {
@@ -126,17 +126,17 @@ variable "resources_limits" {
 }
 variable "consolidation_enabled" {
   type        = bool
-  description = "You can configure Karpenter to deprovision instances through your Provisioner in multiple ways. You can use var.ttl_seconds_untill_expierd, var.ttl_secondes_after_empty or var.consolidation_enabled."
+  description = "You can configure Karpenter to deprovision instances through your Provisioner in multiple ways. You can use var.ttl_seconds_until_expired, var.ttl_seconds_after_empty or var.consolidation_enabled."
   default     = true
 }
-variable "ttl_secondes_after_empty" {
+variable "ttl_seconds_after_empty" {
   type        = number
-  description = "node will be deprovisioned if it is empty after given secondes.consolidation should be disabled"
+  description = "node will be deprovisioned if it is empty after given seconds.consolidation should be disabled"
   default     = null
 }
-variable "ttl_seconds_untill_expierd" {
+variable "ttl_seconds_until_expired" {
   type        = number
-  description = "node will be deprovisioned after given secondes.consolidation should be disabled"
+  description = "node will be deprovisioned after given seconds.consolidation should be disabled"
   default     = null
 }
 variable "weight" {
@@ -203,7 +203,7 @@ variable "sg_selector" {
 variable "ami_selector" {
   type        = map(string)
   default     = {}
-  description = "Discovers tagged amis to override the amiFamily's default"
+  description = "Discovers tagged AMIs to override the amiFamily's default"
 }
 variable "user_data" {
   type        = string

@@ -26,6 +26,7 @@ locals {
     }
   }
 }
+
 resource "local_file" "provisioner_app" {
   count    = var.argocd_enabled ? 1 : 0
   content  = yamlencode(local.provisioner_app)
@@ -58,8 +59,8 @@ module "provisioners" {
   kubelet_max_pods                      = try(each.value.kubelet_max_pods, null)
   resources_limits                      = try(each.value.resources_limits, {})
   consolidation_enabled                 = try(each.value.consolidation_enabled, true)
-  ttl_secondes_after_empty              = try(each.value.ttl_secondes_after_empty, null)
-  ttl_seconds_untill_expierd            = try(each.value.ttl_seconds_untill_expierd, null)
+  ttl_seconds_after_empty               = try(each.value.ttl_seconds_after_empty, null)
+  ttl_seconds_until_expired             = try(each.value.ttl_seconds_until_expired, null)
   weight                                = try(each.value.weight, null)
   ami_family                            = try(each.value.ami_family, "AL2")
   block_device_mappings                 = try(each.value.block_device_mappings, [])
