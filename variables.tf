@@ -4,7 +4,7 @@ variable "cluster_name" {
 }
 variable "application_name" {
   type        = string
-  description = "A name of the Argocd application recource"
+  description = "A name of the ArgoCD application recource"
   default     = "provisioners"
 }
 variable "argocd" {

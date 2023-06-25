@@ -30,8 +30,8 @@ locals {
       local.kubelet_configuration,
       local.resources_limits,
       local.consolidation_enabled,
-      local.ttl_secondes_after_empty,
-      local.ttl_seconds_untill_expierd,
+      local.ttl_seconds_after_empty,
+      local.ttl_seconds_until_expired,
       local.weight
 
     )
@@ -83,16 +83,16 @@ locals {
       "values"   = ["2"]
     },
   ]
-  requirements               = length(var.requirements) == 0 ? { "requirements" = local.default_requirements } : { "requirements" = var.requirements }
-  labels                     = length(var.labels) == 0 ? {} : { "labels" = var.labels }
-  taints                     = length(var.taints) == 0 ? {} : { "taints" = var.taints }
-  annotations                = length(var.annotations) == 0 ? {} : { "annotations" = var.annotations }
-  startup_taints             = length(var.startup_taints) == 0 ? {} : { "startupTaints" = var.startup_taints }
-  resources_limits           = length(var.resources_limits) == 0 ? {} : { "limits" = { "resources" = var.resources_limits } }
-  consolidation_enabled      = { "consolidation" = { "enabled" = var.consolidation_enabled } }
-  ttl_secondes_after_empty   = var.ttl_secondes_after_empty == null ? {} : { "ttlSecondsAfterEmpty" = var.ttl_secondes_after_empty }
-  ttl_seconds_untill_expierd = var.ttl_seconds_untill_expierd == null ? {} : { "ttlSecondsUntilExpired" = var.ttl_seconds_untill_expierd }
-  weight                     = var.weight == null ? {} : { "weight" = var.weight }
+  requirements              = length(var.requirements) == 0 ? { "requirements" = local.default_requirements } : { "requirements" = var.requirements }
+  labels                    = length(var.labels) == 0 ? {} : { "labels" = var.labels }
+  taints                    = length(var.taints) == 0 ? {} : { "taints" = var.taints }
+  annotations               = length(var.annotations) == 0 ? {} : { "annotations" = var.annotations }
+  startup_taints            = length(var.startup_taints) == 0 ? {} : { "startupTaints" = var.startup_taints }
+  resources_limits          = length(var.resources_limits) == 0 ? {} : { "limits" = { "resources" = var.resources_limits } }
+  consolidation_enabled     = { "consolidation" = { "enabled" = var.consolidation_enabled } }
+  ttl_seconds_after_empty   = var.ttl_seconds_after_empty == null ? {} : { "ttlSecondsAfterEmpty" = var.ttl_seconds_after_empty }
+  ttl_seconds_until_expired = var.ttl_seconds_until_expired == null ? {} : { "ttlSecondsUntilExpired" = var.ttl_seconds_until_expired }
+  weight                    = var.weight == null ? {} : { "weight" = var.weight }
   kubelet_configuration = { "kubeletConfiguration" = merge(
     local.cluster_dns,
     local.container_runtime,
